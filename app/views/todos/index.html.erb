@@ -1,0 +1,11 @@
+<h1>Список дел</h1>
+<p>Find me in app/views/todos/index.html.erb</p>
+<br>
+<br>
+<div class= "row">
+<% form_with scope: :todo, url: todos_path do |f| %>
+  <% f.text_field :item %> 
+  <br>
+  <% f.submit "Add item"%>
+<% end %>
+<div>
