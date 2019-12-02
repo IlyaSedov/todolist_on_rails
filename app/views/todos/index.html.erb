@@ -14,12 +14,15 @@
       <tr>
         <td><%= todo.title %></td>
         <td><%= todo.description %></td>
+        <td><%= todo.completed.check_box :completed, :checked => false %></td>
+        <td><small><%= link_to 'delete', todo, method: :delete %> </small></td>
       </tr>
     <% end %>
     <div class="form">
-      <%= form_for :todo do |f| %>
+      <%= form_with scope: :todo, url: todos_path do |f| %>
         Title: <%= f.text_field :title %><br />
         Description : <%= f.text_field :description %>
+        <%= f.check_box :completed, :checked => false %> 
         <%= f.submit %>
       <% end %>
     </div>
